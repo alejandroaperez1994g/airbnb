@@ -2,6 +2,7 @@ import Head from "next/head";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Host from "../components/Host";
 import LargeCard from "../components/LargeCard";
 import MediumCard from "../components/MediumCard";
 import SmallCard from "../components/SmallCard";
@@ -48,6 +49,13 @@ export default function Home({ exploreData, cardsData }) {
           title="Lo mejor al aire libre"
           description="Lista de deseos seleccionada por Airbnb"
           buttonText="Inspírate"
+        />
+
+        <Host
+          img="https://i.ibb.co/VmwQWZv/2595054e-d1d9-4fde-8046-58d51fcb3164.webp"
+          title="Hazte anfitrión"
+          description="Sácate un extra y abre la puerta a todo un mundo de oportunidades compartiendo tu alojamiento."
+          buttonText="Más información"
         />
       </main>
 
