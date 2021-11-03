@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { useRouter } from "next/dist/client/router";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
+import Map from "../components/Map";
 
 function Search({ searchResult }) {
   const router = useRouter();
@@ -13,18 +14,21 @@ function Search({ searchResult }) {
   const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
-  console.log(searchResult);
-
   return (
     <div>
       <Header placeholder={`${location} | ${range} | ${noOfGuests}`} />
       <main className="flex">
         <section className="flex-grow pt-14  px-16">
-          <p className="text-xs ">
-            Más de 300 alojamientos · {range} · para {noOfGuests} huéspedes
+          <p className="text-xs flex ">
+            Más de 300 alojamientos
+            <p className="bg-red-400 rounded-md mr-1 ml-1 px-1">
+              {" "}
+              {range}{" "}
+            </p>{" "}
+            para {noOfGuests} huéspedes
           </p>
           <h1 className=" text-3xl font-semibold mt-2  mb-6">
-            Stays in {location}
+            Estancias en {location}
           </h1>
           <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap ">
             <p className="button">Cancelación gratuita</p>
@@ -49,6 +53,9 @@ function Search({ searchResult }) {
               )
             )}
           </div>
+        </section>
+        <section className="hidden xl:inline-flex   xl:min-w-[600px]">
+          <Map searchResults={searchResult} />
         </section>
       </main>
       <Footer />
